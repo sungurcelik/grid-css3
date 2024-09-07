@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --kutu-1-color: #f5004f;
+  --kutu-2-color: #ffb200;
+  --kutu-3-color: green;
+  --kutu-width: 500px;
+  --kutu-height: 200px;
+}
+
+.title {
+  margin: 30px;
+}
+
+.kutu,
+.kutu-1,
+.kutu-2 {
+  margin: 30px;
+  width: var(--kutu-width);
+  height: var(--kutu-height);
+  background-color: aqua;
+  margin-bottom: 10px;
+}
+
+.kutu {
+  background-color: var(--kutu-1-color);
+}
+.kutu-1 {
+  background-color: var(--kutu-2-color);
+}
+.kutu-2 {
+  background-color: var(--kutu-3-color);
+}
+
+/* after-example */
+
+.after-example {
+  margin: 30px;
+  position: relative;
+}
+
+.after-example::before {
+  content: "";
+  width: 0;
+  height: 10px;
+  background-color: #f5004f;
+  display: block;
+  position: absolute;
+  top: 30px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.after-example:hover::before {
+  width: 150px;
+  opacity: 1;
+}
+
+.example {
+  margin: 30px;
+  position: relative;
+}
+
+.example::after {
+  content: "";
+  width: 100px;
+  height: 10px;
+  background-color: #ffb200;
+  display: block;
+  position: absolute;
+  left: 100px;
+}
+
+.example-1 {
+  margin: 30px;
+  border-bottom: 0px solid #f5004f;
+  padding: 20px;
+}
+
+.example-1:hover {
+  border-bottom: 10px solid #f5004f;
+}
+
+/* Grid Yapısı */
+
+/* Grid yapısı esnek bir ızgara şeklinde çalışır. Bir satırın içerisinde yer alan sütunların nasıl alan kaplayacağını belirleyerek daha kolay responsive tasarım elde ederiz.
+
+Grid Yapısında bilinmesi gereken kavramlar::after
+
+row ==> Satır. Yatay eksendeki hücrelerdir
+
+column ==> Sütun. Yatay ekseni dikey şekilde kesen her bir dikey hücredir.
+*/
+
+.container,
+.container1 {
+  padding: 20px;
+  display: grid;
+  margin-top: 20px;
+}
+
+.container {
+  background-color: darkgoldenrod;
+  padding: 20px;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.yeni-kutu {
+  background-color: aliceblue;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.container1 {
+  background-color: brown;
+  grid-template-columns: 1fr 300px 2fr;
+}
+
+.grid-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto 300px auto;
+  background-color: burlywood;
+  border-radius: 20px;
+}
+
+.header {
+  grid-column: 1/4;
+  background-color: green;
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.sidebar {
+  background-color: tomato;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.content {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: #ffb200;
+  padding: 20px;
+}
+.extra-content {
+  grid-column: 3/4;
+  grid-row: 2/3;
+  background-color: darkmagenta;
+}
+
+.footer {
+  grid-column: 1/4;
+  grid-row: 3/4;
+  padding: 20px;
+  background-color: greenyellow;
+  text-align: center;
+}
